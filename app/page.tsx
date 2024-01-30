@@ -1,113 +1,177 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import {AiFillLinkedin} from 'react-icons/ai';
+import {BsFillMoonStarsFill} from 'react-icons/bs';
+import avatar from '../public/avatar.jpeg';
+import LexisLogo from '../public/LexisNexis_logo.svg';
+import BGLogo from '../public/Baillie_Gifford_logo.png';
+import SmartsearchLogo from '../public/SmartSearch-Logo.png';
+import fandueLogo from '../public/Fanduel_logo.svg';
+import xdesignLogo from '../public/xdesign_logo.png';
+import {SiNextdotjs} from 'react-icons/si';
+import {FaAngular, FaGithub, FaReact} from 'react-icons/fa';
+import Panel from './components/Panel';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <section>
+        <div className='text-center p-10 grid md:grid-cols-2 gap-2'>
+          <div className='flex flex-col justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600'>
+            <h2 className='text-5xl font-bold y-2 text-teal-600 dark:text-teal-400 md:text-6xl'>
+              Zakaria Arr
+            </h2>
+            <h3 className='text-2xl py-2 dark:text-white md:text-3xl'>
+              UI Developer
+            </h3>
+            <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-100 max-w-xl mx-auto md:text-xl'>
+              Front End developer who loves building fantastic user interfaces
+              and user experiences.
+            </p>
+            <div className='text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-600 '>
+              <Link href='https://github.com/zakaria09' target='_blank'>
+                <FaGithub className='text-black' />
+              </Link>
+              <Link
+                href='https://www.linkedin.com/in/zakaria-arr/'
+                target='_blank'
+              >
+                <AiFillLinkedin className='text-blue-700' />
+              </Link>
+            </div>
+          </div>
+          <div className='flex justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600'>
+            <div className='w-80 h-80 md:h-96 md:w-96'>
+              <Image
+                src={avatar}
+                alt='profile picture'
+                className='rounded-full'
+              />
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      </section>
+      <section>
+        <div className='p-10 bg-white rounded-md'>
+          <h2 className='text-xl'>Companies I've worked for or with</h2>
+          <div className='py-10 text-nowrap overflow-hidden'>
+            <ul className='inline-block mr-40 animate-slide-show'>
+              <div className='flex gap-40'>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image src={LexisLogo} alt='logo' />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image src={BGLogo} alt='logo' />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image
+                      src={SmartsearchLogo}
+                      className='max-h-20 my-auto'
+                      alt='logo'
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image
+                      src={xdesignLogo}
+                      alt='logo'
+                      className='bg-black rounded-sm'
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image src={fandueLogo} alt='logo' />
+                  </div>
+                </li>
+              </div>
+            </ul>
+            <ul className='inline-block animate-slide-show'>
+              <div className='flex gap-40'>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image src={LexisLogo} alt='logo' />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image src={BGLogo} alt='logo' />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image
+                      src={SmartsearchLogo}
+                      className='max-h-20 my-auto'
+                      alt='logo'
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image
+                      src={xdesignLogo}
+                      alt='logo'
+                      className='bg-black rounded-sm'
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div className='h-24 w-40 flex p-4'>
+                    <Image src={fandueLogo} alt='logo' />
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section className='py-16'>
+        <div className='flex justify-center'>
+          <div className='grid md:grid-cols-3 gap-4 max-w-7xl'>
+            <Panel
+              heading='Next JS'
+              content='Next JS has recently become my favourite and go to framework 
+              for building performant and SEO friendly websote and web applications. 
+              Even this website is built with Next JS!'
+            >
+              <SiNextdotjs />
+            </Panel>
+            <Panel
+              heading='React'
+              content='React JS is one of my favourite libraries and the fact that 
+              Next JS was built on top of it made me it hard for me to resist learning React. 
+              Currently a lot of the work I do at the moment is in React JS.'
+            >
+              <FaReact className='text-cyan-400' />
+            </Panel>
+            <Panel
+              heading='Angular'
+              content={
+                'The first JavaScript framework I became fimiliar with. Although a lot ' +
+                'of my previous experience is with Angular my plan is to move away ' +
+                'from it in the lon terms and towards other JavaScript frameworks as ' +
+                "I've become bored of the framework and it's past lack of innovation."
+              }
+            >
+              <FaAngular className='text-red-600' />
+            </Panel>
+          </div>
+        </div>
+      </section>
+      <footer className='shadow-md'>
+        <div className='min-h-24 bg-white text-center flex justify-center items-center'>
+          <span className='font-thin text-slate-400 text-sm'>
+            Zakaria Arr &copy; {new Date().getFullYear()}
+          </span>
+        </div>
+      </footer>
     </main>
   );
 }
