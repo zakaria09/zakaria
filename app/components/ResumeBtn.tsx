@@ -10,13 +10,23 @@ export default function ResumeBtn({open}: {open: (val: boolean) => void}) {
     open(isOpen);
   };
 
-  return (
+  const btn = !isOpen ? (
     <Link
       className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8 cursor-pointer'
       onClick={handleOpen}
-      href={'/cv?showDialog=y'}
+      href={'/cv'}
     >
       Resume
     </Link>
+  ) : (
+    <Link
+      onClick={handleOpen}
+      href={'/'}
+      className='bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8  cursor-pointer'
+    >
+      Close
+    </Link>
   );
+
+  return btn;
 }

@@ -138,7 +138,7 @@ export default function Home() {
             <Panel
               heading='Next JS'
               content='Next JS has recently become my favourite and go to framework 
-              for building performant and SEO friendly websote and web applications. 
+              for building performant and SEO friendly website and web applications. 
               Even this website is built with Next JS!'
             >
               <SiNextdotjs />
