@@ -3,9 +3,11 @@ import React, {useState} from 'react';
 import {BsFillMoonStarsFill} from 'react-icons/bs';
 import ResumeBtn from './ResumeBtn';
 import DarkModeBtn from './DarkModeBtn';
+import {usePathname} from 'next/navigation';
 
 export default function NavBar() {
   const [isOpen, setOpen] = useState<boolean>(false);
+  const pathname = usePathname();
   const onOpen = (open: boolean) => {
     setOpen(open);
   };
@@ -19,7 +21,7 @@ export default function NavBar() {
             <DarkModeBtn />
           </li>
           <li>
-            <ResumeBtn open={onOpen} />
+            <ResumeBtn onOpen={onOpen} open={pathname === '/' ? false : true} />
           </li>
         </ul>
       </div>

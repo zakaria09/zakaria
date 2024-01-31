@@ -1,13 +1,23 @@
 'use client';
 import Link from 'next/link';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-export default function ResumeBtn({open}: {open: (val: boolean) => void}) {
+export default function ResumeBtn({
+  onOpen,
+  open,
+}: {
+  onOpen: (val: boolean) => void;
+  open?: boolean;
+}) {
   const [isOpen, setOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setOpen(open ?? false);
+  }, [open]);
 
   const handleOpen = () => {
     setOpen(!isOpen);
-    open(isOpen);
+    onOpen(isOpen);
   };
 
   const btn = !isOpen ? (
