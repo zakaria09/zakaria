@@ -90,7 +90,7 @@ export default function Home() {
                 </li>
               </div>
             </ul>
-            <ul className='inline-block animate-slide-show'>
+            <ul className='inline-block animate-slide-show invisible sm:visible'>
               <div className='flex gap-40'>
                 <li>
                   <div className='h-24 w-40 flex p-4'>
