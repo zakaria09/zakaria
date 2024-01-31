@@ -1,34 +1,44 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import {AiFillLinkedin} from 'react-icons/ai';
 import avatar from '../public/avatar.jpeg';
 import LexisLogo from '../public/LexisNexis_logo.svg';
 import BGLogo from '../public/Baillie_Gifford_logo.png';
 import SmartsearchLogo from '../public/SmartSearch-Logo.png';
 import fandueLogo from '../public/Fanduel_logo.svg';
 import xdesignLogo from '../public/xdesign_logo.png';
-import {SiNextdotjs} from 'react-icons/si';
-import {FaAngular, FaGithub, FaReact} from 'react-icons/fa';
 import Panel from './components/Panel';
 import {SocialIcon} from 'react-social-icons/component';
 import 'react-social-icons/linkedin';
 import 'react-social-icons/github';
+import {HomePageResp} from './types/homepage.types';
 
-export default function Home() {
+const getData = async () => {
+  const res = await fetch(
+    `https://api.buttercms.com/v2/pages/landing-page/home-page/?preview=1&auth_token=${process.env.auth_token}`,
+    {next: {revalidate: 3600}}
+  );
+  if (!res.ok) {
+    throw new Error('failed to fetch data!');
+  }
+  return res.json();
+};
+
+export default async function Home() {
+  const resp: HomePageResp = await getData();
+  const {title, description} = resp.data.fields.seo;
+  const {body} = resp.data.fields;
   return (
     <main>
       <section>
         <div className='text-center container mx-auto py-10 grid md:grid-cols-2 gap-2'>
           <div className='flex flex-col justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600'>
             <h2 className='text-5xl font-bold y-2 text-teal-600 dark:text-teal-400 md:text-6xl'>
-              Zakaria Arr
+              {title}
             </h2>
             <h3 className='text-2xl py-2 text-gray-500 dark:text-gray-300 md:text-3xl'>
               UI Developer
             </h3>
             <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-400 max-w-xl mx-auto md:text-xl'>
-              Front End developer who loves building fantastic user interfaces
-              and user experiences.
+              {description}
             </p>
             <div className='text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-600'>
               <SocialIcon
@@ -135,7 +145,22 @@ export default function Home() {
       <section className='py-16'>
         <div className='flex justify-center'>
           <div className='grid md:grid-cols-3 gap-4 max-w-7xl'>
-            <Panel
+            {body[0].fields.features.map((section, ind) => (
+              <Panel
+                key={ind}
+                heading={section.headline}
+                content={section.description}
+              >
+                <Image
+                  src={section.icon}
+                  className='max-h-16 max-w-16'
+                  height={150}
+                  width={150}
+                  alt='logo'
+                />
+              </Panel>
+            ))}
+            {/* <Panel
               heading='Next JS'
               content='Next JS has recently become my favourite and go to framework 
               for building performant and SEO friendly website and web applications. 
@@ -161,7 +186,7 @@ export default function Home() {
               }
             >
               <FaAngular className='text-red-600' />
-            </Panel>
+            </Panel> */}
           </div>
         </div>
       </section>
