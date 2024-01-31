@@ -16,7 +16,7 @@ export default function ResumeBtn({open}: {open: (val: boolean) => void}) {
       onClick={handleOpen}
       href={'/cv'}
     >
-      Resume
+      Resumé
     </Link>
   ) : (
     <Link

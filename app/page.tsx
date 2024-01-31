@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {AiFillLinkedin} from 'react-icons/ai';
-import {BsFillMoonStarsFill} from 'react-icons/bs';
 import avatar from '../public/avatar.jpeg';
 import LexisLogo from '../public/LexisNexis_logo.svg';
 import BGLogo from '../public/Baillie_Gifford_logo.png';
@@ -11,6 +10,9 @@ import xdesignLogo from '../public/xdesign_logo.png';
 import {SiNextdotjs} from 'react-icons/si';
 import {FaAngular, FaGithub, FaReact} from 'react-icons/fa';
 import Panel from './components/Panel';
+import {SocialIcon} from 'react-social-icons/component';
+import 'react-social-icons/linkedin';
+import 'react-social-icons/github';
 
 export default function Home() {
   return (
@@ -21,23 +23,19 @@ export default function Home() {
             <h2 className='text-5xl font-bold y-2 text-teal-600 dark:text-teal-400 md:text-6xl'>
               Zakaria Arr
             </h2>
-            <h3 className='text-2xl py-2 dark:text-white md:text-3xl'>
+            <h3 className='text-2xl py-2 text-gray-500 dark:text-gray-300 md:text-3xl'>
               UI Developer
             </h3>
-            <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-100 max-w-xl mx-auto md:text-xl'>
+            <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-400 max-w-xl mx-auto md:text-xl'>
               Front End developer who loves building fantastic user interfaces
               and user experiences.
             </p>
-            <div className='text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-600 '>
-              <Link href='https://github.com/zakaria09' target='_blank'>
-                <FaGithub className='text-black' />
-              </Link>
-              <Link
-                href='https://www.linkedin.com/in/zakaria-arr/'
+            <div className='text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-600'>
+              <SocialIcon
                 target='_blank'
-              >
-                <AiFillLinkedin className='text-blue-700' />
-              </Link>
+                url='https://www.linkedin.com/company/somalihikers/'
+              />
+              <SocialIcon target='_blank' url='https://github.com/zakaria09' />
             </div>
           </div>
           <div className='flex justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600'>
@@ -52,7 +50,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className='p-10 bg-white rounded-md'>
+        <div className='p-10 bg-white dark:text-gray-300 dark:bg-slate-600 rounded-md'>
           <h2 className='text-xl'>Companies I've worked for or with</h2>
           <div className='py-10 text-nowrap overflow-hidden'>
             <ul className='inline-block mr-40 animate-slide-show'>
@@ -141,7 +139,7 @@ export default function Home() {
               for building performant and SEO friendly website and web applications. 
               Even this website is built with Next JS!'
             >
-              <SiNextdotjs />
+              <SiNextdotjs className='dark:text-white' />
             </Panel>
             <Panel
               heading='React'
@@ -165,13 +163,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className='shadow-md'>
-        <div className='min-h-24 bg-white text-center flex justify-center items-center'>
-          <span className='font-thin text-slate-400 text-sm'>
-            Zakaria Arr &copy; {new Date().getFullYear()}
-          </span>
-        </div>
-      </footer>
     </main>
   );
 }
