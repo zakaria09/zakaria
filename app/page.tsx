@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main>
       <section>
-        <div className='text-center p-10 grid md:grid-cols-2 gap-2'>
+        <div className='text-center container mx-auto py-10 grid md:grid-cols-2 gap-2'>
           <div className='flex flex-col justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600'>
             <h2 className='text-5xl font-bold y-2 text-teal-600 dark:text-teal-400 md:text-6xl'>
               Zakaria Arr
