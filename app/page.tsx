@@ -57,17 +57,18 @@ export default function Home() {
               <div className='flex gap-40'>
                 <li>
                   <div className='h-24 w-40 flex p-4'>
-                    <Image src={LexisLogo} alt='logo' />
+                    <Image priority={true} src={LexisLogo} alt='logo' />
                   </div>
                 </li>
                 <li>
                   <div className='h-24 w-40 flex p-4'>
-                    <Image src={BGLogo} alt='logo' />
+                    <Image priority={true} src={BGLogo} alt='logo' />
                   </div>
                 </li>
                 <li>
                   <div className='h-24 w-40 flex p-4'>
                     <Image
+                      priority={true}
                       src={SmartsearchLogo}
                       className='max-h-20 my-auto'
                       alt='logo'
@@ -77,6 +78,7 @@ export default function Home() {
                 <li>
                   <div className='h-24 w-40 flex p-4'>
                     <Image
+                      priority={true}
                       src={xdesignLogo}
                       alt='logo'
                       className='bg-black rounded-sm'
@@ -85,7 +87,7 @@ export default function Home() {
                 </li>
                 <li>
                   <div className='h-24 w-40 flex p-4'>
-                    <Image src={fandueLogo} alt='logo' />
+                    <Image priority={true} src={fandueLogo} alt='logo' />
                   </div>
                 </li>
               </div>
