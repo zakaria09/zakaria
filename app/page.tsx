@@ -160,33 +160,6 @@ export default async function Home() {
                 />
               </Panel>
             ))}
-            {/* <Panel
-              heading='Next JS'
-              content='Next JS has recently become my favourite and go to framework 
-              for building performant and SEO friendly website and web applications. 
-              Even this website is built with Next JS!'
-            >
-              <SiNextdotjs className='dark:text-white' />
-            </Panel>
-            <Panel
-              heading='React'
-              content='React JS is one of my favourite libraries and the fact that 
-              Next JS was built on top of it made me it hard for me to resist learning React. 
-              Currently a lot of the work I do at the moment is in React JS.'
-            >
-              <FaReact className='text-cyan-400' />
-            </Panel>
-            <Panel
-              heading='Angular'
-              content={
-                'The first JavaScript framework I became fimiliar with. Although a lot ' +
-                'of my previous experience is with Angular my plan is to move away ' +
-                'from it in the lon terms and towards other JavaScript frameworks as ' +
-                "I've become bored of the framework and it's past lack of innovation."
-              }
-            >
-              <FaAngular className='text-red-600' />
-            </Panel> */}
           </div>
         </div>
       </section>
