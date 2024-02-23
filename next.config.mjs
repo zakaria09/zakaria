@@ -6,9 +6,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.buttercms.com',
-        port: '',
+        protocol: "https",
+        hostname: "cdn.buttercms.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
       },
     ],
   },
