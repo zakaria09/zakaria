@@ -16,11 +16,16 @@ const config: Config = {
       },
       animation: {
         "slide-show": "15s slide infinite linear",
+        "slide-in": "translate 1s",
       },
       keyframes: {
         slide: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-160px * 10))" },
+        },
+        translate: {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(-100%)" },
         },
       },
     },

@@ -1,4 +1,3 @@
-'use client'
 import DateFormat from '@/app/components/Date';
 import React from 'react';
 import styles from '../blog.module.scss';
@@ -7,15 +6,14 @@ import { fullBlog } from '@/app/types/posts.type';
 import Image from "next/image";
 import { PortableText } from '@portabletext/react';
 import Markdown from 'react-markdown';
-import { CopyBlock } from "react-code-blocks";
-
 
 const components = {
   types: {
-    code: (props: any) => {
-      console.log(props)
+    code: ({ value }: {value: { code: string; _type: string; language: string; key: string }}) => {
       return (
-        <CopyBlock text={props.code} language={props.language}  />
+        <div className="prose prose-xl">
+          <pre>{value.code}</pre>
+        </div>
       );
     },
   },
