@@ -43,7 +43,7 @@ export default async function Post({params}: {params: {slug: string}}) {
           <div className="max-w-2xl mx-auto">
             <div className="py-8 px-4">
               <DateFormat dateString={post._createdAt} />
-              <h1 className="leading-10 font-extrabold text-4xl text-zinc-800 pb-4">
+              <h1 className="leading-10 font-extrabold text-4xl text-zinc-800 dark:text-zinc-100 pb-4">
                 {post.title}
               </h1>
               <Image

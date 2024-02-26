@@ -27,10 +27,10 @@ export default async function Blog() {
           <div className="bg-white dark:bg-slate-700 rounded-md shadow-md">
             <div className="p-16">
               <div className="max-w-2xl">
-                <h1 className="leading-snug font-semibold text-5xl tracking-tight">
+                <h1 className="leading-snug font-semibold text-5xl tracking-tight dark:text-zinc-100">
                   Writings on new concepts I'm expoloring in web dev.
                 </h1>
-                <p className="mt-4 text-zinc-500">
+                <p className="mt-4 text-zinc-500 dark:text-zinc-200">
                   All of my thoughts and experiences within the field of modern
                   web development.
                 </p>
@@ -59,8 +59,8 @@ export default async function Blog() {
                             }}
                           />
                         </div>
-                        <h1 className="font-semibold text-lg ">{post.title}</h1>
-                        <p className="text-slate-400 no-underline">
+                        <h1 className="font-semibold text-lg dark:text-white dark:hover:text-cyan-300">{post.title}</h1>
+                        <p className="text-slate-400 no-underline dark:text-slate-300">
                           {post.smallDescription}
                         </p>
                       </div>
