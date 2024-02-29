@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,16 +15,21 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       animation: {
-        "slide-show": "15s slide infinite linear"
+        "slide-show": "15s slide infinite linear",
+        "slide-in": "translate 1s",
       },
       keyframes: {
         slide: {
           from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-160px * 10))" }
-        }
+          to: { transform: "translateX(calc(-160px * 10))" },
+        },
+        translate: {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(-100%)" },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;

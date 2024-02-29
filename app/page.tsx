@@ -10,35 +10,34 @@ import {SocialIcon} from 'react-social-icons/component';
 import 'react-social-icons/linkedin';
 import 'react-social-icons/github';
 import {HomePageResp} from './types/homepage.types';
+import {client, urlFor} from './lib/sanity';
 
 const getData = async () => {
-  const res = await fetch(
-    `https://api.buttercms.com/v2/pages/landing-page/home-page/?preview=1&auth_token=${process.env.auth_token}`,
-    {next: {revalidate: 3600}}
-  );
-  if (!res.ok) {
-    throw new Error('failed to fetch data!');
-  }
-  return res.json();
+  const query = `*[_type == 'competence'] {
+    heading,
+    icon,
+    description
+  }`;
+  const data = await client.fetch(query);
+  return data;
 };
 
 export default async function Home() {
-  const resp: HomePageResp = await getData();
-  const {title, description} = resp.data.fields.seo;
-  const {body} = resp.data.fields;
+  const data: HomePageResp[] = await getData();
   return (
     <main>
       <section>
         <div className='text-center container mx-auto py-10 grid md:grid-cols-2 gap-2'>
           <div className='flex flex-col justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600'>
-            <h2 className='text-5xl font-bold y-2 text-teal-600 dark:text-teal-400 md:text-6xl'>
-              {title}
+            <h2 className='text-5xl font-bold y-2 bg-gradient-to-r from-teal-400 to-indigo-600 dark:bg-gradient-to-r dark:from-teal-200 dark:to-indigo-200 md:text-6xl bg-clip-text text-transparent'>
+              Zakaria Arr
             </h2>
             <h3 className='text-2xl py-2 text-gray-500 dark:text-gray-300 md:text-3xl'>
               UI Developer
             </h3>
             <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-400 max-w-xl mx-auto md:text-xl'>
-              {description}
+              Front End developer who loves building fantastic user interfaces
+              and user experiences.
             </p>
             <div className='text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-600'>
               <SocialIcon
@@ -61,7 +60,9 @@ export default async function Home() {
       </section>
       <section>
         <div className='p-10 bg-white dark:text-gray-300 dark:bg-slate-600 rounded-md'>
-          <h2 className='text-xl'>Companies I've worked for or with</h2>
+          <h2 className='text-2xl font-semibold'>
+            Companies I've worked for or with
+          </h2>
           <div className='py-10 text-nowrap overflow-hidden'>
             <ul className='inline-block mr-40 animate-slide-show'>
               <div className='flex gap-40'>
@@ -143,16 +144,21 @@ export default async function Home() {
         </div>
       </section>
       <section className='py-16'>
+        <div className='max-w-7xl'>
+          <h2 className='pl-10 pb-10 text-2xl font-semibold block'>
+            Competence
+          </h2>
+        </div>
         <div className='flex justify-center'>
           <div className='grid md:grid-cols-3 gap-4 max-w-7xl'>
-            {body[0].fields.features.map((section, ind) => (
+            {data.map((section, ind) => (
               <Panel
                 key={ind}
-                heading={section.headline}
+                heading={section.heading}
                 content={section.description}
               >
                 <Image
-                  src={section.icon}
+                  src={urlFor(section.icon).url()}
                   className='max-h-16 max-w-16'
                   height={150}
                   width={150}

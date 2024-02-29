@@ -9,7 +9,7 @@ type Props = {
 export default function Panel({heading, content, children}: Props) {
   return (
     <div className='bg-white rounded-md shadow-lg p-14 min-h-64 min-w-72 dark:text-gray-200 dark:bg-slate-600'>
-      <div className='md:text-6xl text-7xl'>
+      <div className='md:text-xl text-2xl'>
         <div className='flex justify-center py-12'>{children}</div>
       </div>
       <div className='py-6'>
