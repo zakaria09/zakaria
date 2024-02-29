@@ -1,17 +1,21 @@
 import DateFormat from '@/app/components/Date';
 import React from 'react';
 import styles from '../blog.module.scss';
-import { client, urlFor } from '@/app/lib/sanity';
-import { fullBlog } from '@/app/types/posts.type';
-import Image from "next/image";
-import { PortableText } from '@portabletext/react';
+import {client, urlFor} from '@/app/lib/sanity';
+import {fullBlog} from '@/app/types/posts.type';
+import Image from 'next/image';
+import {PortableText} from '@portabletext/react';
 import Markdown from 'react-markdown';
 
 const components = {
   types: {
-    code: ({ value }: {value: { code: string; _type: string; language: string; key: string }}) => {
+    code: ({
+      value,
+    }: {
+      value: {code: string; _type: string; language: string; key: string};
+    }) => {
       return (
-        <div className="prose prose-xl">
+        <div className='prose prose-xl'>
           <pre>{value.code}</pre>
         </div>
       );
@@ -35,29 +39,28 @@ const getPost = async (slug: string) => {
 export default async function Post({params}: {params: {slug: string}}) {
   const {slug} = params;
   const post: fullBlog = await getPost(slug);
-  console.log(post.content)
   return (
-    <div className="container mx-auto">
-      <div className="min-h-screen">
-        <div className="bg-white dark:bg-slate-700 rounded-md shadow-md flex items-center">
-          <div className="max-w-2xl mx-auto">
-            <div className="py-8 px-4">
+    <div className='container mx-auto'>
+      <div className='min-h-screen'>
+        <div className='bg-white dark:bg-slate-700 rounded-md shadow-md flex items-center'>
+          <div className='max-w-2xl mx-auto'>
+            <div className='py-8 px-4'>
               <DateFormat dateString={post._createdAt} />
-              <h1 className="leading-10 font-extrabold text-4xl text-zinc-800 dark:text-zinc-100 pb-4">
+              <h1 className='leading-10 font-extrabold text-4xl text-zinc-800 dark:text-zinc-100 pb-4'>
                 {post.title}
               </h1>
               <Image
                 src={urlFor(post.titleImage).url()}
-                alt={"blog image"}
+                alt={'blog image'}
                 width={800}
                 height={400}
                 style={{
-                  maxHeight: "100%",
-                  width: "100%",
-                  objectFit: "contain",
+                  maxHeight: '100%',
+                  width: '100%',
+                  objectFit: 'contain',
                 }}
               />
-              <div className="pt-6 prose prose-blue prose-xl dark:prose-invert">
+              <div className='pt-6 prose prose-blue prose-xl dark:prose-invert'>
                 <PortableText components={components} value={post.content} />
               </div>
             </div>
