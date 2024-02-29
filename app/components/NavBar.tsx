@@ -7,6 +7,7 @@ import {usePathname} from 'next/navigation';
 import Link from 'next/link';
 import { RxHamburgerMenu } from "react-icons/rx";
 import classNames from 'classnames';
+import { IoCloseSharp } from 'react-icons/io5';
 
 export default function NavBar() {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -30,7 +31,11 @@ export default function NavBar() {
         </Link>
 
         <span onClick={handleToggleNav} className="md:hidden">
-          <RxHamburgerMenu className="text-4xl cursor-pointer" />
+          {!navOpen ? (
+            <RxHamburgerMenu className="text-4xl cursor-pointer" />
+          ) : (
+            <IoCloseSharp className="text-4xl cursor-pointer" />
+          )}
         </span>
 
         <ul
@@ -43,7 +48,7 @@ export default function NavBar() {
           )}
         >
           <li>
-            <Link className="link" href={"/blog"}>
+            <Link className="link" href={"/blog"} onClick={handleToggleNav}>
               Blog
             </Link>
           </li>

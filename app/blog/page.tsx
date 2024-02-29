@@ -52,9 +52,8 @@ export default async function Blog() {
                             alt={'blog image'}
                             width={600}
                             height={600}
+                            className='w-full h-full'
                             style={{
-                              maxHeight: "40rem",
-                              maxWidth: "40rem",
                               objectFit: "contain",
                             }}
                           />

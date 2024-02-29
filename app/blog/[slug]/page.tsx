@@ -43,7 +43,7 @@ export default async function Post({params}: {params: {slug: string}}) {
     <div className='container mx-auto'>
       <div className='min-h-screen'>
         <div className='bg-white dark:bg-slate-700 rounded-md shadow-md flex items-center'>
-          <div className='max-w-2xl mx-auto'>
+          <div className='md:max-w-2xl mx-auto'>
             <div className='py-8 px-4'>
               <DateFormat dateString={post._createdAt} />
               <h1 className='leading-10 font-extrabold text-4xl text-zinc-800 dark:text-zinc-100 pb-4'>
@@ -54,9 +54,8 @@ export default async function Post({params}: {params: {slug: string}}) {
                 alt={'blog image'}
                 width={800}
                 height={400}
+                className='h-100 w-100'
                 style={{
-                  maxHeight: '100%',
-                  width: '100%',
                   objectFit: 'contain',
                 }}
               />
