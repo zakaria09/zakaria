@@ -1,6 +1,6 @@
 'use client';
 import classNames from 'classnames';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {BsFillMoonStarsFill} from 'react-icons/bs';
 import {CiLight} from 'react-icons/ci';
 import { RiComputerLine } from 'react-icons/ri';
@@ -8,8 +8,9 @@ import { RiComputerLine } from 'react-icons/ri';
 type theme = 'light' | 'dark' | 'system';
 
 export default function DarkModeBtn() {
-  const [theme, setTheme] = useState<theme>(window.localStorage.getItem('theme') as theme ?? 'system');
+  const [theme, setTheme] = useState<theme>(window?.localStorage?.getItem('theme') as theme ?? 'system');
   const [isOpen, setOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -25,6 +26,19 @@ export default function DarkModeBtn() {
     }
     window.localStorage.setItem('theme', theme);
   }, [theme]);
+
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      if (menuRef.current?.contains(event.target as Node)) return;
+      setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [])
 
   const handleDarkMode = (selectedTheme: theme) => {
     setTheme(selectedTheme);
@@ -43,7 +57,7 @@ export default function DarkModeBtn() {
   };
 
   return (
-    <>
+    <div ref={menuRef}>
       <button 
         type='button' onClick={toggleOpen}>{btn}</button>
       <div className={
@@ -73,6 +87,6 @@ export default function DarkModeBtn() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }
