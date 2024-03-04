@@ -8,7 +8,7 @@ import { RiComputerLine } from 'react-icons/ri';
 type theme = 'light' | 'dark' | 'system';
 
 export default function DarkModeBtn() {
-  const [theme, setTheme] = useState<theme>(window?.localStorage?.getItem('theme') as theme ?? 'system');
+  const [theme, setTheme] = useState<theme>((window && window.localStorage.getItem('theme') as theme) ?? 'system');
   const [isOpen, setOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -66,21 +66,21 @@ export default function DarkModeBtn() {
         <ul>
           <li
             onClick={() => handleDarkMode("dark")}
-            className="p-6 flex justify-around items-center cursor-pointer"
+            className="p-6 flex justify-around items-center cursor-pointer hover:bg-cyan-100 dark:hover:bg-cyan-700"
           >
             <BsFillMoonStarsFill className="text-2xl" />
             Dark
           </li>
           <li
             onClick={() => handleDarkMode("light")}
-            className="p-6 flex justify-around items-center cursor-pointer"
+            className="p-6 flex justify-around items-center cursor-pointer hover:bg-cyan-100 dark:hover:bg-cyan-700"
           >
             <CiLight className="text-2xl" />
             Light
           </li>
           <li
             onClick={() => handleDarkMode('system')}
-            className="p-6 flex justify-around items-center cursor-pointer"
+            className="p-6 flex justify-around items-center cursor-pointer hover:bg-cyan-100 dark:hover:bg-cyan-700"
           >
             <RiComputerLine className="text-2xl" />
             System

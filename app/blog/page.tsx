@@ -19,12 +19,11 @@ const getPosts = async () => {
 
 export default async function Blog() {
   const data: simpleBlogCard[] = await getPosts();
-  console.log(data);
   return (
     <section>
       <div className="container mx-auto">
         <div className="min-h-screen ">
-          <div className="bg-white dark:bg-slate-700 rounded-md shadow-md">
+          <div className="bg-white dark:bg-slate-800 rounded-md shadow-md">
             <div className="p-16">
               <div className="max-w-2xl">
                 <h1 className="leading-snug font-semibold text-5xl tracking-tight dark:text-zinc-100">

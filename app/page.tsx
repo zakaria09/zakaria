@@ -28,14 +28,14 @@ export default async function Home() {
     <main>
       <section>
         <div className="text-center container mx-auto py-10 grid md:grid-cols-2 gap-2">
-          <div className="flex flex-col justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600">
+          <div className="flex flex-col justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-800">
             <h2 className="text-5xl font-bold y-2 bg-gradient-to-r from-teal-400 to-indigo-600 dark:bg-gradient-to-r dark:from-teal-200 dark:to-indigo-200 md:text-6xl bg-clip-text text-transparent">
               Zakaria Arr
             </h2>
-            <h3 className="text-2xl py-2 text-gray-500 dark:text-gray-300 md:text-3xl">
+            <h3 className="text-2xl py-2 text-gray-500 dark:text-gray-100 md:text-3xl">
               UI Developer
             </h3>
-            <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-400 max-w-xl mx-auto md:text-xl">
+            <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
               Front End developer who loves building fantastic user interfaces
               and user experiences.
             </p>
@@ -47,7 +47,7 @@ export default async function Home() {
               <SocialIcon target="_blank" url="https://github.com/zakaria09" />
             </div>
           </div>
-          <div className="flex justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-600">
+          <div className="flex justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-800">
             <div className="w-80 h-80 md:h-96 md:w-96">
               <Image
                 src={avatar}
@@ -59,7 +59,7 @@ export default async function Home() {
         </div>
       </section>
       <section>
-        <div className="p-10 bg-white dark:text-gray-300 dark:bg-slate-600 rounded-md">
+        <div className="p-10 bg-white dark:text-gray-300 dark:bg-slate-800 rounded-md">
           <h2 className="text-2xl font-semibold">
             Companies I've worked for or with
           </h2>
