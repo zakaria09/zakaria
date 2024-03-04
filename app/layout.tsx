@@ -3,6 +3,7 @@ import {Inter} from 'next/font/google';
 import './globals.css';
 import NavBar from './components/NavBar';
 import {Providers} from './providers';
+import Head from 'next/head';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -19,6 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
+      <meta
+        name='viewport'
+        content='width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0'
+      />
       <body className={`${inter.className} bg-background dark:bg-black`}>
         <Providers>
           <NavBar />
