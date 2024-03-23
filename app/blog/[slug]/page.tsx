@@ -6,6 +6,7 @@ import {fullBlog} from '@/app/types/posts.type';
 import Image from 'next/image';
 import {PortableText} from '@portabletext/react';
 import Markdown from 'react-markdown';
+import { Metadata, ResolvingMetadata } from 'next';
 
 const components = {
   types: {
@@ -23,10 +24,16 @@ const components = {
   },
 };
 
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
 const getPost = async (slug: string) => {
   const query = `*[_type == "blog" && slug.current == '${slug}'] {
     "currentSlug": slug.current,
       title,
+      smallDescription,
       content,
       titleImage,
       _createdAt,
@@ -35,6 +42,34 @@ const getPost = async (slug: string) => {
   const [data] = await client.fetch(query);
   return data;
 };
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { slug } = params;
+
+  // fetch data
+  const post: fullBlog = await getPost(slug)
+
+  return {
+    title: post.title,
+    description: post.smallDescription,
+    openGraph: {
+      images: [
+        {
+          url: `https://zakariaarr.com.com/api/og?title=${encodeURIComponent(
+            post.title
+          )}&imageUrl=${urlFor(post.titleImage).width(500).height(300).url()}`,
+          width: 1200,
+          height: 630,
+          alt: "",
+        },
+      ],
+    },
+  };
+}
 
 export default async function Post({params}: {params: {slug: string}}) {
   const {slug} = params;
