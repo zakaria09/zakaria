@@ -59,7 +59,7 @@ export async function generateMetadata(
     openGraph: {
       images: [
         {
-          url: `https://zakariaarr.com.com/api/og?title=${encodeURIComponent(
+          url: `${process.env.BASE_URL}/api/og?title=${encodeURIComponent(
             post.title
           )}&imageUrl=${urlFor(post.titleImage).width(500).height(300).url()}`,
           width: 1200,
@@ -74,6 +74,7 @@ export async function generateMetadata(
 export default async function Post({params}: {params: {slug: string}}) {
   const {slug} = params;
   const post: fullBlog = await getPost(slug);
+  console.log(urlFor(post.titleImage).width(100).height(100).url());
   return (
     <div className='container mx-auto'>
       <div className='min-h-screen'>

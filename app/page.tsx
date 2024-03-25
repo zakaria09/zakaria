@@ -29,7 +29,7 @@ export default async function Home() {
       <section>
         <div className="text-center container mx-auto py-10 grid md:grid-cols-2 gap-2">
           <div className="flex flex-col justify-center p-12 rounded-md shadow-lg bg-white dark:bg-slate-800">
-            <h2 className="text-5xl font-bold y-2 bg-gradient-to-r from-teal-400 to-indigo-600 dark:bg-gradient-to-r dark:from-teal-200 dark:to-indigo-200 md:text-6xl bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-teal-400 to-indigo-600 dark:bg-gradient-to-r dark:from-teal-200 dark:to-indigo-200 md:text-6xl bg-clip-text text-transparent">
               Zakaria Arr
             </h2>
             <h3 className="text-2xl py-2 text-gray-500 dark:text-gray-100 md:text-3xl">
