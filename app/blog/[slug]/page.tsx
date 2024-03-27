@@ -7,6 +7,7 @@ import Image from 'next/image';
 import {PortableText} from '@portabletext/react';
 import Markdown from 'react-markdown';
 import { Metadata, ResolvingMetadata } from 'next';
+import groq from 'groq'
 
 const components = {
   types: {
@@ -30,8 +31,8 @@ type Props = {
 };
 
 const getPost = async (slug: string) => {
-  const query = `*[_type == "blog" && slug.current == '${slug}'] {
-    "currentSlug": slug.current,
+  const query = groq`*[_type == "blog" && slug.current == '${slug}'] {
+    currentSlug: slug.current,
       title,
       smallDescription,
       content,
