@@ -13,7 +13,7 @@ const getPosts = async () => {
     smallDescription,
     _createdAt,
     _updatedAt,
-    currentSlug: slug.current,
+    "currentSlug": slug.current,
     titleImage
 }`;
   const data = await client.fetch(query);
