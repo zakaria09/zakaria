@@ -5,6 +5,8 @@ import {client, urlFor} from '../lib/sanity';
 import {simpleBlogCard} from '../types/posts.type';
 import groq from 'groq';
 
+export const revalidate = 3600;
+
 const getPosts = async () => {
   const query = groq`*[_type == 'blog'] | order(_createdAt desc) {
   title,
