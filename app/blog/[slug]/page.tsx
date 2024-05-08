@@ -32,7 +32,7 @@ type Props = {
 
 const getPost = async (slug: string) => {
   const query = groq`*[_type == "blog" && slug.current == '${slug}'] {
-    currentSlug: slug.current,
+    'currentSlug': slug.current,
       title,
       smallDescription,
       content,
