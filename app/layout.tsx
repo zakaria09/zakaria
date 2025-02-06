@@ -1,10 +1,20 @@
 import type {Metadata} from 'next';
-import {Inter} from 'next/font/google';
+import {Inter, Gochi_Hand} from 'next/font/google';
 import './globals.css';
 import NavBar from './components/NavBar';
 import {Providers} from './providers';
+import localFont from 'next/font/local';
 
-const inter = Inter({subsets: ['latin']});
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const gochi = Gochi_Hand({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-gochi',
+});
 
 export const metadata: Metadata = {
   title: 'Zakaria Arr | FE Developer',
@@ -19,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={`${inter.className} bg-background dark:bg-black`}>
+      <body className={`${inter.variable} ${gochi.variable} font-sans `}>
         <Providers>
           <NavBar />
           {children}

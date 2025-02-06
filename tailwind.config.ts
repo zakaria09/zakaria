@@ -1,38 +1,45 @@
-import type { Config } from "tailwindcss";
+import type {Config} from 'tailwindcss';
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: 'class',
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        gochi: ['var(--font-gochi)'],
+      },
       colors: {
-        'background': '#f3f3f3f3'
+        background: '#f3f3f3f3',
+        'dark-bg': '#171B26',
+        'gradient-blue': '#01BBFE4D',
+        'soft-blue': 'rgba(1, 187, 254, 0.8)',
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
-        "slide-show": "15s slide infinite linear",
-        "slide-in": "translate 1s",
+        'slide-show': '15s slide infinite linear',
+        'slide-in': 'translate 1s',
       },
       keyframes: {
         slide: {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-160px * 10))" },
+          from: {transform: 'translateX(0)'},
+          to: {transform: 'translateX(calc(-160px * 10))'},
         },
         translate: {
-          from: { transform: "translateY(0)" },
-          to: { transform: "translateY(-100%)" },
+          from: {transform: 'translateY(0)'},
+          to: {transform: 'translateY(-100%)'},
         },
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')],
 };
 export default config;
