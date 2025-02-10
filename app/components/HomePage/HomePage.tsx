@@ -20,7 +20,6 @@ import {useInView} from 'react-intersection-observer';
 import mount_snowden from '@/public/mount-snowden.png';
 import istanbul_cat from '@/public/istanbul-cat.png';
 import award_uni from '@/public/award-uni.png';
-import bullet_point from '@/public/bullet-point.png';
 import ExperienceCard from '../ExperienceCard/ExperienceCard';
 
 const experience = [
