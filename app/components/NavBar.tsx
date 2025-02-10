@@ -27,7 +27,7 @@ export default function NavBar() {
           <h1
             className={`${lumios.className} italic font-semibold text-3xl bg-gradient-to-r from-teal-600 to-indigo-600 dark:bg-gradient-to-r dark:from-teal-200 dark:to-indigo-200 bg-clip-text text-transparent`}
           >
-            Zakaria Arr
+            Zakariye Arr
           </h1>
         </Link>
 

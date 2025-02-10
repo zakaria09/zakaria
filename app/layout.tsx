@@ -15,9 +15,9 @@ const gochi = Gochi_Hand({
 });
 
 export const metadata: Metadata = {
-  title: 'Zakaria Arr | FE Developer',
+  title: 'Zakariye Arr | FE Developer',
   description:
-    "I'm Zakaria Arr and I am Front End developer who loves building fantastic user interfaces and user experiences.",
+    "I'm Zakariye Arr and I am Front End developer who loves building fantastic user interfaces and user experiences.",
 };
 
 export default function RootLayout({
