@@ -20,6 +20,9 @@ export default function VideoPlayer({
         url={url}
         playing={isPlaying}
         controls
+        playsinline
+        muted
+        loop
         width='100%'
         height='100%'
       />
