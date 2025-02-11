@@ -19,6 +19,8 @@ export default function NavBar() {
     setOpen(open);
   };
 
+  console.log(navOpen);
+
   const handleToggleNav = () => {
     setNavOpen(!navOpen);
   };
@@ -27,6 +29,7 @@ export default function NavBar() {
     const previous = scrollY.getPrevious() as number;
     if (previous && latest > previous && latest > 150) {
       setHidden(true);
+      setNavOpen(false);
     } else {
       setHidden(false);
     }
@@ -40,18 +43,18 @@ export default function NavBar() {
       }}
       animate={hidden ? 'hidden' : 'visible'}
       transition={{duration: 0.5, ease: 'easeInOut'}}
-      className='sticky top-0 shadow-sm z-50 bg-white dark:text-white dark:bg-slate-800 border-b-4 border-gray-200 dark:border-gray-900 border-solid'
+      className='sticky top-0 shadow-sm z-50 scale-0 group-focus:scale-y-100 origin-top duration-200 bg-white border-b-4 border-gray-200 border-solid'
     >
       <div className='flex justify-between py-10 px-10 md:px-20 relative'>
         <Link href={'/'}>
           <h1
-            className={`${lumios.className} italic font-semibold text-3xl bg-gradient-to-r from-teal-600 to-indigo-600 dark:bg-gradient-to-r dark:from-teal-200 dark:to-indigo-200 bg-clip-text text-transparent`}
+            className={`${lumios.className} italic font-semibold text-3xl bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent`}
           >
             Zakariye Arr
           </h1>
         </Link>
 
-        <span onClick={handleToggleNav} className='md:hidden'>
+        <span onClick={handleToggleNav} className='md:hidden text-black'>
           {!navOpen ? (
             <RxHamburgerMenu className='text-4xl cursor-pointer' />
           ) : (
@@ -59,11 +62,11 @@ export default function NavBar() {
           )}
         </span>
 
-        <ul
+        <motion.ul
           className={classNames(
-            `absolute left-0  bg-white dark:bg-slate-800 w-full flex 
+            `absolute left-0  bg-white w-full flex 
             flex-col gap-8 items-center py-8 border-b-4 border-gray-200 
-            dark:border-gray-900 border-solid md:static md:border-0
+            border-solid md:static md:border-0
             md:flex-row md:justify-around md:max-w-72 md:p-0`,
             `${navOpen ? 'top-[116px]' : 'top-[-390px]'}`
           )}
@@ -73,13 +76,7 @@ export default function NavBar() {
               Blog
             </Link>
           </li>
-          <li>
-            <ResumeBtn
-              onOpen={onOpen}
-              open={pathname !== '/cv' ? false : true}
-            />
-          </li>
-        </ul>
+        </motion.ul>
       </div>
     </motion.nav>
   );

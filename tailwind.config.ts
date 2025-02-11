@@ -31,7 +31,7 @@ const config: Config = {
       keyframes: {
         slide: {
           from: {transform: 'translateX(0)'},
-          to: {transform: 'translateX(calc(-160px * 10))'},
+          to: {transform: 'translateX(calc(-100%))'},
         },
         translate: {
           from: {transform: 'translateY(0)'},

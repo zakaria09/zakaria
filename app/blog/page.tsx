@@ -41,29 +41,29 @@ export default async function Blog() {
                 {data.map((post, ind) => (
                   <div
                     key={ind}
-                    className='border-b-2 border-solid border-slate-200 max-w-2xl py-6 hover:text-cyan-500'
+                    className='border-2 border-solid rounded-md border-slate-100 max-w-2xl my-6 hover:text-cyan-500'
                   >
                     <Link
                       href={`/blog/${post.currentSlug}`}
-                      className='cursor-pointer'
+                      className='cursor-pointer group'
                     >
-                      <div className=''>
-                        <div className='h-full w-full'>
+                      <div className='p-4'>
+                        <div className='h-full w-full overflow-hidden'>
                           <Image
                             src={urlFor(post.titleImage).url()}
                             alt={'blog image'}
                             width={600}
                             height={600}
-                            className='w-full h-full'
+                            className='w-full h-full relative z-0 rounded-lg transition-all duration-300 group-hover:scale-110'
                             style={{
                               objectFit: 'contain',
                             }}
                           />
                         </div>
-                        <h1 className='font-semibold text-lg dark:text-white dark:hover:text-cyan-300'>
+                        <h1 className='font-semibold text-lg py-2'>
                           {post.title}
                         </h1>
-                        <p className='text-slate-400 no-underline dark:text-slate-300'>
+                        <p className='text-slate-400 no-underline group-hover:text-cyan-950'>
                           {post.smallDescription}
                         </p>
                       </div>

@@ -4,7 +4,7 @@
 
 
 .link {
-  @apply text-cyan-500 px-4 py-2 font-medium cursor-pointer;
+  @apply text-[#4B50D9] hover:text-violet-500 px-4 py-2 font-semibold cursor-pointer;
 }
 
 pre {

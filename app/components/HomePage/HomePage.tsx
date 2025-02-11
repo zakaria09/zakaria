@@ -123,7 +123,7 @@ export default function HomePage({
             Companies I've worked with or for:
           </h2>
           <div className='py-4 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]'>
-            <ul className='flex items-center justify-center md:justify-start [&_li]:mx-12 [&_img]:max-w-full animate-slide-show'>
+            <ul className='flex items-center justify-center md:justify-start [&_li]:mx-16 [&_img]:max-w-full animate-slide-show'>
               <div className='flex gap-6'>
                 {logos.map((company: any) => (
                   <li key={company._id}>
@@ -141,7 +141,7 @@ export default function HomePage({
                 ))}
               </div>
             </ul>
-            <ul className='flex items-center justify-center md:justify-start [&_li]:mx-12 [&_img]:max-w-full animate-slide-show'>
+            <ul className='flex items-center justify-center md:justify-start [&_li]:mx-16 [&_img]:max-w-full animate-slide-show'>
               <div className='flex gap-6'>
                 {logos.map((logo: any) => (
                   <li key={logo._id}>
