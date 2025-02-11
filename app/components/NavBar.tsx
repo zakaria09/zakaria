@@ -1,5 +1,5 @@
 'use client';
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import ResumeBtn from './ResumeBtn';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
@@ -7,10 +7,13 @@ import {RxHamburgerMenu} from 'react-icons/rx';
 import classNames from 'classnames';
 import {IoCloseSharp} from 'react-icons/io5';
 import {lumios} from '@/app/lib/LumiosFont';
+import {motion, useScroll, useMotionValueEvent} from 'framer-motion';
 
 export default function NavBar() {
+  const {scrollY} = useScroll();
   const [isOpen, setOpen] = useState<boolean>(false);
   const [navOpen, setNavOpen] = useState<boolean>(false);
+  const [hidden, setHidden] = useState<boolean>(false);
   const pathname = usePathname();
   const onOpen = (open: boolean) => {
     setOpen(open);
@@ -20,8 +23,25 @@ export default function NavBar() {
     setNavOpen(!navOpen);
   };
 
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious() as number;
+    if (previous && latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   return (
-    <nav className='sticky top-0 shadow-sm z-50 bg-white dark:text-white dark:bg-slate-800 border-b-4 border-gray-200 dark:border-gray-900 border-solid'>
+    <motion.nav
+      variants={{
+        visible: {y: 0},
+        hidden: {y: '-100%'},
+      }}
+      animate={hidden ? 'hidden' : 'visible'}
+      transition={{duration: 0.5, ease: 'easeInOut'}}
+      className='sticky top-0 shadow-sm z-50 bg-white dark:text-white dark:bg-slate-800 border-b-4 border-gray-200 dark:border-gray-900 border-solid'
+    >
       <div className='flex justify-between py-10 px-10 md:px-20 relative'>
         <Link href={'/'}>
           <h1
@@ -44,7 +64,7 @@ export default function NavBar() {
             `absolute left-0  bg-white dark:bg-slate-800 w-full flex 
             flex-col gap-8 items-center py-8 border-b-4 border-gray-200 
             dark:border-gray-900 border-solid md:static md:border-0
-            md:flex-row md:justify-between md:max-w-72 md:p-0`,
+            md:flex-row md:justify-around md:max-w-72 md:p-0`,
             `${navOpen ? 'top-[116px]' : 'top-[-390px]'}`
           )}
         >
@@ -61,6 +81,6 @@ export default function NavBar() {
           </li>
         </ul>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
