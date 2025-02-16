@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from 'next/image';
 import card_bg from '../../public/card-bg.png';
 
@@ -10,7 +10,7 @@ type Props = {
 
 export default function Panel({heading, content, children}: Props) {
   return (
-    <div className='relative '>
+    <>
       <Image
         src={card_bg}
         height={200}
@@ -33,6 +33,6 @@ export default function Panel({heading, content, children}: Props) {
           <p className='text-stone-700 dark:text-stone-200'>{content}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 }

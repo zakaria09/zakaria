@@ -19,8 +19,6 @@ export default function NavBar() {
     setOpen(open);
   };
 
-  console.log(navOpen);
-
   const handleToggleNav = () => {
     setNavOpen(!navOpen);
   };
@@ -41,8 +39,15 @@ export default function NavBar() {
         visible: {y: 0},
         hidden: {y: '-100%'},
       }}
+      initial={false}
       animate={hidden ? 'hidden' : 'visible'}
-      transition={{duration: 0.5, ease: 'easeInOut'}}
+      transition={{
+        duration: 0.5,
+        ease: 'easeInOut',
+        type: 'spring',
+        stiffness: 200,
+        damping: 25,
+      }}
       className='sticky top-0 shadow-sm z-50 scale-0 group-focus:scale-y-100 origin-top duration-200 bg-white border-b-4 border-gray-200 border-solid'
     >
       <div className='flex justify-between py-10 px-10 md:px-20 relative'>
