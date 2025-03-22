@@ -1,4 +1,6 @@
-export default {
+import {defineType} from 'sanity'
+
+export default defineType({
   name: 'blog',
   type: 'document',
   title: 'Blog',
@@ -14,6 +16,7 @@ export default {
       title: 'Slug of your blog article',
       options: {
         source: 'title',
+        maxLength: 96, // Optional: Limit max length of slug
       },
     },
     {
@@ -23,7 +26,7 @@ export default {
     },
     {
       name: 'smallDescription',
-      type: 'text',
+      type: 'string', // Use 'string' for a small description
       title: 'Small description',
     },
     {
@@ -32,17 +35,13 @@ export default {
       title: 'Content',
       of: [
         {
-          type: 'block',
+          type: 'block', // Default block content
         },
         {
           type: 'image',
-          options: {hotspot: true},
-        },
-        {
-          type: 'code',
-          title: 'Code block',
+          title: 'Image',
         },
       ],
     },
   ],
-}
+})

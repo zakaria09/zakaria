@@ -23,7 +23,7 @@ const getPosts = async () => {
 export default async function Blog() {
   const data: simpleBlogCard[] = await getPosts();
   return (
-    <section>
+    <section className='bg-[#f9f9f9]'>
       <div className='container mx-auto'>
         <div className='min-h-screen '>
           <div className='bg-white dark:bg-slate-800 rounded-md shadow-md'>
@@ -37,11 +37,11 @@ export default async function Blog() {
                   web development.
                 </p>
               </div>
-              <div>
+              <div className='flex flex-wrap lg:justify-between justify-center'>
                 {data.map((post, ind) => (
                   <div
                     key={ind}
-                    className='border-2 border-solid rounded-md border-slate-100 max-w-2xl my-6 hover:text-cyan-500'
+                    className='border-2 border-solid rounded-md border-slate-100 max-w-lg my-6 hover:text-cyan-500'
                   >
                     <Link
                       href={`/blog/${post.currentSlug}`}

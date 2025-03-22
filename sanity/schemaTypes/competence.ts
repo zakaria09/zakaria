@@ -1,4 +1,6 @@
-export default {
+import {defineType} from 'sanity'
+
+export default defineType({
   name: 'competence',
   type: 'document',
   title: 'Home Page Competences',
@@ -18,5 +20,5 @@ export default {
       name: 'description',
       type: 'string',
     },
-  ]
-}
+  ],
+})

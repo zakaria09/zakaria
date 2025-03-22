@@ -1,5 +1,8 @@
+import {type SchemaTypeDefinition} from 'sanity'
 import blog from './blog'
-import homePage from './competence'
 import companyLogo from './companyLogo'
+import competence from './competence'
 
-export const schemaTypes = [blog, homePage, companyLogo]
+export const schema: {types: SchemaTypeDefinition[]} = {
+  types: [blog, companyLogo, competence],
+}
