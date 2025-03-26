@@ -50,9 +50,10 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function Post({params}: {params: {slug: string}}) {
-  const {slug} = params;
-  const post: fullBlog = await getPost(slug);
+export default async function Post(props: {params: Params}) {
+  const params = await props.params;
+  const slug = params.slug;
+  const post: fullBlog = await getPost(slug as unknown as string);
   console.log(urlFor(post.titleImage).width(100).height(100).url());
   return <BlogPost post={post} />;
 }
