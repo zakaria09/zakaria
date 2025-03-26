@@ -6,10 +6,7 @@ import {Metadata, ResolvingMetadata} from 'next';
 import groq from 'groq';
 import BlogPost from '@/app/components/BlogPost/BlogPost';
 
-type Props = {
-  params: {slug: string};
-  searchParams: {[key: string]: string | string[] | undefined};
-};
+type Params = Promise<{slug: string[]}>;
 
 const getPost = async (slug: string) => {
   const query = groq`*[_type == "blog" && slug.current == '${slug}'] {
@@ -25,15 +22,15 @@ const getPost = async (slug: string) => {
   return data;
 };
 
-export async function generateMetadata(
-  {params, searchParams}: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(props: {
+  params: Params;
+}): Promise<Metadata> {
   // read route params
-  const {slug} = params;
+  const params = await props.params;
+  const slug = params.slug;
 
   // fetch data
-  const post: fullBlog = await getPost(slug);
+  const post: fullBlog = await getPost(slug as unknown as string);
 
   return {
     title: post.title,
