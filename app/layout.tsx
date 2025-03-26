@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import {Inter, Gochi_Hand} from 'next/font/google';
 import './globals.css';
 import NavBar from './components/NavBar';
+import {GoogleTagManager} from '@next/third-parties/google';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,6 +30,9 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body className={`${inter.variable} ${gochi.variable} font-sans `}>
         <NavBar />
+        <GoogleTagManager
+          gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID as string}
+        />
         {children}
         <footer className='shadow-md bg-[#182638]'>
           <div className='min-h-24 text-white text-center flex justify-center items-center'>
