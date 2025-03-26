@@ -1,4 +1,3 @@
-import {type SchemaTypeDefinition} from 'sanity'
 import blog from './blog'
 import companyLogo from './companyLogo'
 import competence from './competence'
